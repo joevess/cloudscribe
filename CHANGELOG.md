@@ -5,6 +5,7 @@
 - 默认更新源改为 GitHub 发布仓库。
 - 公开发布仓库提供安装说明、Compose 示例、更新清单和变更记录。
 - Docker 镜像仍发布在 `joevess9/cloudscribe`。
+- Digest: `sha256:b45ec687d0f0c96782df4b8debae93fc4e4852f8eedd024bc92c246eb4216e2c`。
 
 ## 0.9.85 - 2026-06-05
 

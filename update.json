@@ -5,7 +5,7 @@
   "compose_url": "https://raw.githubusercontent.com/joevess/cloudscribe/main/docker-compose.yml",
   "release_notes": [
     "默认更新源改为 GitHub 发布仓库",
-    "优化应用管理页面排版",
-    "定时检查默认关闭，默认间隔 30 分钟"
+    "公开发布仓库提供安装说明、Compose 示例、更新清单和变更记录",
+    "Docker 镜像仍发布在 joevess9/cloudscribe"
   ]
 }

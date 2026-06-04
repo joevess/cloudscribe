@@ -107,6 +107,11 @@ docker compose up -d
 - GitHub: https://github.com/joevess/cloudscribe
 - 镜像: `joevess9/cloudscribe:latest`
 
+当前版本：
+
+- `0.9.86`
+- Digest: `sha256:b45ec687d0f0c96782df4b8debae93fc4e4852f8eedd024bc92c246eb4216e2c`
+
 ## 注意事项
 
 云盘 Web 接口不是稳定的公开契约。登录、转存、分享、直链获取等能力可能受到账号状态、Cookie 或 token 失效、平台策略调整、风控和频率限制影响。
