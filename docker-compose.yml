@@ -1,0 +1,14 @@
+services:
+  cloudscribe:
+    image: joevess9/cloudscribe:latest
+    container_name: cloudscribe
+    ports:
+      - "8008:8008"
+    environment:
+      APP_SECRET_KEY: change-this-secret
+      APP_DATA_DIR: /data
+      APP_UPDATE_CHECK_URL: https://raw.githubusercontent.com/joevess/cloudscribe/main/update.json
+      TZ: Asia/Shanghai
+    volumes:
+      - ./data:/data
+    restart: unless-stopped

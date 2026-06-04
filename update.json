@@ -1,0 +1,11 @@
+{
+  "version": "0.9.86",
+  "release_date": "2026-06-05",
+  "image": "joevess9/cloudscribe:0.9.86",
+  "compose_url": "https://raw.githubusercontent.com/joevess/cloudscribe/main/docker-compose.yml",
+  "release_notes": [
+    "默认更新源改为 GitHub 发布仓库",
+    "优化应用管理页面排版",
+    "定时检查默认关闭，默认间隔 30 分钟"
+  ]
+}
