@@ -58,7 +58,8 @@ CloudScribe 是一个部署在 Docker 中的云盘订阅与转存工具，用来
 - 支持删除单条执行记录和清空执行记录。
 - 系统日志支持分页、级别筛选、分类筛选、刷新、删除单条和清空。
 - 应用管理页显示当前版本、构建号、发布日期和运行状态。
-- 支持应用内检查更新，默认读取 GitHub 更新清单。
+- 支持应用内版本更新，默认读取 GitHub 更新清单，展示版本说明并可一键更新容器。
+- 更新过程中使用全屏遮罩接管页面，等待服务恢复后自动刷新。
 - 支持修改 Web 登录用户名和密码。
 - `/health` 接口返回健康状态、版本、构建号和适配器版本。
 
@@ -143,18 +144,20 @@ docker compose up -d
 
 发布镜像不包含本地测试数据、云盘账号、订阅记录、日志或数据库文件。
 
-## 更新
+## 更新方式
 
 ```bash
 docker compose pull
 docker compose up -d
 ```
 
-应用内“检查更新”默认读取本仓库的 `update.json`。
+应用内版本更新默认读取本仓库的 `update.json`。
 
 ## 应用内更新
 
-应用管理页支持自动检查新版本、展示更新说明，并通过“执行更新”完成容器更新。默认 Compose 配置已经包含所需环境变量和 Docker Socket 挂载：
+应用管理页的“版本更新”会自动检查新版本，展示发布日期、镜像和更新说明。发现新版本后点击“立即更新”，CloudScribe 会启动一次性 Watchtower 任务，拉取 `joevess9/cloudscribe:latest` 并重建当前容器。
+
+默认 Compose 配置已经包含应用内更新所需的环境变量和 Docker Socket 挂载：
 
 ```yaml
 environment:
@@ -165,9 +168,9 @@ volumes:
   - /var/run/docker.sock:/var/run/docker.sock
 ```
 
-点击“执行更新”后，CloudScribe 会启动一个一次性的 Watchtower 更新任务，自动拉取 `joevess9/cloudscribe:latest` 并重建当前容器。页面会显示更新进度，并等待服务恢复后自动刷新。
+更新过程中页面会进入全屏更新状态，避免继续操作其它功能；服务恢复后页面会自动刷新。
 
-建议正式部署使用 `latest` 标签；如果固定使用 `0.9.x` 版本标签，Watchtower 只会检查同一个标签，无法切换到新版本号。
+建议正式部署使用 `latest` 标签。如果固定使用 `0.9.x` 版本标签，Watchtower 只会检查同一个标签，无法切换到新版本号。
 
 `/var/run/docker.sock` 代表宿主机 Docker 管理能力，请只在可信的自用环境中部署。
 
