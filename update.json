@@ -1,11 +1,11 @@
 {
-  "version": "0.9.86",
-  "release_date": "2026-06-05",
-  "image": "joevess9/cloudscribe:0.9.86",
+  "version": "0.9.87",
+  "release_date": "2026-06-07",
+  "image": "joevess9/cloudscribe:0.9.87",
   "compose_url": "https://raw.githubusercontent.com/joevess/cloudscribe/main/docker-compose.yml",
   "release_notes": [
-    "默认更新源改为 GitHub 发布仓库",
-    "公开发布仓库提供安装说明、Compose 示例、更新清单和变更记录",
-    "Docker 镜像仍发布在 joevess9/cloudscribe"
+    "夸克网盘文件删除增加同步中提示，减少删除后短时间仍可见时的误判",
+    "文件管理删除请求携带当前目录，提升子目录删除状态判断准确性",
+    "下载任务支持单个和批量删除清理"
   ]
 }
