@@ -8,13 +8,11 @@ services:
       APP_SECRET_KEY: change-this-secret
       APP_DATA_DIR: /data
       APP_UPDATE_CHECK_URL: https://raw.githubusercontent.com/joevess/cloudscribe/main/update.json
-      APP_SELF_UPDATE_ENABLED: "false"
+      APP_SELF_UPDATE_ENABLED: "true"
       APP_SELF_UPDATE_CONTAINER_NAME: cloudscribe
       APP_SELF_UPDATE_WATCHTOWER_IMAGE: containrrr/watchtower:latest
       TZ: Asia/Shanghai
     volumes:
       - ./data:/data
-      # Enable this mount only if you want to update CloudScribe from inside the app.
-      # Also set APP_SELF_UPDATE_ENABLED=true.
-      # - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
