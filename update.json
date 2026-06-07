@@ -4,8 +4,8 @@
   "image": "joevess9/cloudscribe:0.9.89",
   "compose_url": "https://raw.githubusercontent.com/joevess/cloudscribe/main/docker-compose.yml",
   "release_notes": [
-    "优化应用内更新中心的文案、版本说明和确认流程",
-    "更新过程中使用全屏遮罩接管页面，避免继续操作其它功能",
-    "默认 Compose 部署支持应用内一键更新，开发环境支持安全演练模式"
+    "完善应用内更新中心，清晰展示新版本、镜像信息和更新说明",
+    "执行更新前增加确认流程，降低误操作风险",
+    "更新期间进入维护状态并等待服务恢复，默认 Compose 部署支持应用内一键更新"
   ]
 }
