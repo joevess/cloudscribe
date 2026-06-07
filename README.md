@@ -70,9 +70,12 @@ docker run -d \
   --restart unless-stopped \
   -p 8008:8008 \
   -v ./data:/data \
+  -v /var/run/docker.sock:/var/run/docker.sock \
   -e APP_SECRET_KEY=change-this-secret \
   -e APP_DATA_DIR=/data \
   -e APP_UPDATE_CHECK_URL=https://raw.githubusercontent.com/joevess/cloudscribe/main/update.json \
+  -e APP_SELF_UPDATE_ENABLED=true \
+  -e APP_SELF_UPDATE_CONTAINER_NAME=cloudscribe \
   -e TZ=Asia/Shanghai \
   joevess9/cloudscribe:latest
 ```
@@ -103,9 +106,12 @@ services:
       APP_SECRET_KEY: change-this-secret
       APP_DATA_DIR: /data
       APP_UPDATE_CHECK_URL: https://raw.githubusercontent.com/joevess/cloudscribe/main/update.json
+      APP_SELF_UPDATE_ENABLED: "true"
+      APP_SELF_UPDATE_CONTAINER_NAME: cloudscribe
       TZ: Asia/Shanghai
     volumes:
       - ./data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
 ```
 
@@ -148,7 +154,7 @@ docker compose up -d
 
 ## 应用内更新
 
-应用管理页支持“检查更新”。如果希望在 Web 界面里直接执行更新，需要让容器具备 Docker 控制能力：
+应用管理页支持自动检查新版本、展示更新说明，并通过“执行更新”完成容器更新。默认 Compose 配置已经包含所需环境变量和 Docker Socket 挂载：
 
 ```yaml
 environment:
@@ -159,7 +165,11 @@ volumes:
   - /var/run/docker.sock:/var/run/docker.sock
 ```
 
-启用后，“执行更新”会启动一个一次性的 Watchtower 更新任务，自动拉取 `joevess9/cloudscribe:latest` 并重建当前容器。建议正式部署使用 `latest` 标签；如果固定使用 `0.9.x` 版本标签，Watchtower 只会检查同一个标签，无法切换到新版本号。
+点击“执行更新”后，CloudScribe 会启动一个一次性的 Watchtower 更新任务，自动拉取 `joevess9/cloudscribe:latest` 并重建当前容器。页面会显示更新进度，并等待服务恢复后自动刷新。
+
+建议正式部署使用 `latest` 标签；如果固定使用 `0.9.x` 版本标签，Watchtower 只会检查同一个标签，无法切换到新版本号。
+
+`/var/run/docker.sock` 代表宿主机 Docker 管理能力，请只在可信的自用环境中部署。
 
 健康检查：
 
@@ -175,8 +185,8 @@ wget -qO- http://127.0.0.1:8008/health
 
 当前版本：
 
-- `0.9.88`
-- Digest: `sha256:91b31ad66a7ec54398907294d4b966b2304ada3437428cba3e3c3c4a9d92559c`
+- `0.9.89`
+- Digest: `sha256:f8795653b50c7e2d0b940de5faf206fd59888241cfd4d18d987fb066bf29b63b`
 
 ## 注意事项
 
