@@ -109,8 +109,8 @@ docker compose up -d
 
 当前版本：
 
-- `0.9.86`
-- Digest: `sha256:b45ec687d0f0c96782df4b8debae93fc4e4852f8eedd024bc92c246eb4216e2c`
+- `0.9.87`
+- Digest: `sha256:52205b1bb8772216fbcf6a7d7403e500fb4f4eb227e1a51158dce135f4b3966a`
 
 ## 注意事项
 
