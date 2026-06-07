@@ -1,11 +1,11 @@
 {
-  "version": "0.9.87",
+  "version": "0.9.88",
   "release_date": "2026-06-07",
-  "image": "joevess9/cloudscribe:0.9.87",
+  "image": "joevess9/cloudscribe:0.9.88",
   "compose_url": "https://raw.githubusercontent.com/joevess/cloudscribe/main/docker-compose.yml",
   "release_notes": [
-    "夸克网盘文件删除增加同步中提示，减少删除后短时间仍可见时的误判",
-    "文件管理删除请求携带当前目录，提升子目录删除状态判断准确性",
-    "下载任务支持单个和批量删除清理"
+    "新增应用内执行更新入口",
+    "支持通过可选 Docker Socket 和一次性 Watchtower 任务更新当前容器",
+    "源码同步到私有仓库，公开仓库继续只保存发布资料"
   ]
 }
