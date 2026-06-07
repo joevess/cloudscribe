@@ -146,6 +146,21 @@ docker compose up -d
 
 应用内“检查更新”默认读取本仓库的 `update.json`。
 
+## 应用内更新
+
+应用管理页支持“检查更新”。如果希望在 Web 界面里直接执行更新，需要让容器具备 Docker 控制能力：
+
+```yaml
+environment:
+  APP_SELF_UPDATE_ENABLED: "true"
+  APP_SELF_UPDATE_CONTAINER_NAME: cloudscribe
+volumes:
+  - ./data:/data
+  - /var/run/docker.sock:/var/run/docker.sock
+```
+
+启用后，“执行更新”会启动一个一次性的 Watchtower 更新任务，自动拉取 `joevess9/cloudscribe:latest` 并重建当前容器。建议正式部署使用 `latest` 标签；如果固定使用 `0.9.x` 版本标签，Watchtower 只会检查同一个标签，无法切换到新版本号。
+
 健康检查：
 
 ```bash
@@ -160,8 +175,8 @@ wget -qO- http://127.0.0.1:8008/health
 
 当前版本：
 
-- `0.9.87`
-- Digest: `sha256:52205b1bb8772216fbcf6a7d7403e500fb4f4eb227e1a51158dce135f4b3966a`
+- `0.9.88`
+- Digest: `sha256:91b31ad66a7ec54398907294d4b966b2304ada3437428cba3e3c3c4a9d92559c`
 
 ## 注意事项
 
