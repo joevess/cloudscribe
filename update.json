@@ -1,11 +1,11 @@
 {
-  "version": "0.9.88",
+  "version": "0.9.89",
   "release_date": "2026-06-07",
-  "image": "joevess9/cloudscribe:0.9.88",
+  "image": "joevess9/cloudscribe:0.9.89",
   "compose_url": "https://raw.githubusercontent.com/joevess/cloudscribe/main/docker-compose.yml",
   "release_notes": [
-    "新增应用内执行更新入口",
-    "支持通过可选 Docker Socket 和一次性 Watchtower 任务更新当前容器",
-    "源码同步到私有仓库，公开仓库继续只保存发布资料"
+    "优化应用内更新中心的文案、版本说明和确认流程",
+    "更新过程中使用全屏遮罩接管页面，避免继续操作其它功能",
+    "默认 Compose 部署支持应用内一键更新，开发环境支持安全演练模式"
   ]
 }
