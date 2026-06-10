@@ -28,8 +28,10 @@ CloudScribe 是一个部署在 Docker 中的云盘订阅与转存工具，用来
 - 支持启用、停用、编辑、删除订阅。
 - 支持重置订阅历史，重新识别已保存内容。
 - 支持订阅执行前预览保存效果。
+- 支持在预览中直接调整文件筛选、季集范围、未识别季处理、重命名、同集更新和 Aria2 设置。
 - 支持按包含关键词、排除关键词过滤资源。
 - 支持按季集范围保存：全部保存、从指定季集开始、从指定集数开始、只保存指定季。
+- 支持未识别季的自动推断、指定季数或不补充处理。
 
 ### 规则管理
 
@@ -39,6 +41,7 @@ CloudScribe 是一个部署在 Docker 中的云盘订阅与转存工具，用来
 - 同集更新规则支持按文件名关键词、文件大小范围、扩展名匹配。
 - 支持新增、编辑、删除自定义规则。
 - 支持启用、停用和排序同集更新规则。
+- 内置多套常用命名规则，如剧名季集、中文集数、季集编号前置等。
 - 内置规则不可误删，适合不熟悉正则或模板时直接使用默认配置。
 
 ### Aria2 下载任务
@@ -77,6 +80,7 @@ docker run -d \
   -e APP_UPDATE_CHECK_URL=https://raw.githubusercontent.com/joevess/cloudscribe/main/update.json \
   -e APP_SELF_UPDATE_ENABLED=true \
   -e APP_SELF_UPDATE_CONTAINER_NAME=cloudscribe \
+  -e APP_SELF_UPDATE_WATCHTOWER_IMAGE=containrrr/watchtower:latest \
   -e TZ=Asia/Shanghai \
   joevess9/cloudscribe:latest
 ```
@@ -109,6 +113,7 @@ services:
       APP_UPDATE_CHECK_URL: https://raw.githubusercontent.com/joevess/cloudscribe/main/update.json
       APP_SELF_UPDATE_ENABLED: "true"
       APP_SELF_UPDATE_CONTAINER_NAME: cloudscribe
+      APP_SELF_UPDATE_WATCHTOWER_IMAGE: containrrr/watchtower:latest
       TZ: Asia/Shanghai
     volumes:
       - ./data:/data
@@ -163,6 +168,7 @@ docker compose up -d
 environment:
   APP_SELF_UPDATE_ENABLED: "true"
   APP_SELF_UPDATE_CONTAINER_NAME: cloudscribe
+  APP_SELF_UPDATE_WATCHTOWER_IMAGE: containrrr/watchtower:latest
 volumes:
   - ./data:/data
   - /var/run/docker.sock:/var/run/docker.sock
@@ -188,8 +194,8 @@ wget -qO- http://127.0.0.1:8008/health
 
 当前版本：
 
-- `0.9.89`
-- Digest: `sha256:f8795653b50c7e2d0b940de5faf206fd59888241cfd4d18d987fb066bf29b63b`
+- `0.9.90`
+- Digest: `sha256:54a6c925dec226328d9ffb57f40bf9ab22230c16240c054f1277e9e7abaca861`
 
 ## 注意事项
 
