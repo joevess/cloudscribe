@@ -1,12 +1,11 @@
 {
-  "version": "0.9.90",
-  "release_date": "2026-06-10",
-  "image": "joevess9/cloudscribe:0.9.90",
+  "version": "0.9.91",
+  "release_date": "2026-06-11",
+  "image": "joevess9/cloudscribe:0.9.91",
   "compose_url": "https://raw.githubusercontent.com/joevess/cloudscribe/main/docker-compose.yml",
   "release_notes": [
-    "订阅预览升级为可编辑预览，可直接调整筛选、季集范围、未识别季处理、重命名、同集更新和 Aria2 设置",
-    "新增未识别季处理选项，支持自动推断、指定季数或不补充，并在预览中标注来源",
-    "优化同集更新保存流程，处理云盘同名冲突、旧版本替换与命名回退",
-    "新增多套内置命名规则，订阅表单布局与预览结果展示更紧凑"
+    "修复夸克分享链接指向子目录时，订阅仍从分享根目录扫描的问题",
+    "预览、直接转存和订阅执行现在都会遵守 #/list/share/... 中的目录 ID",
+    "新增夸克分享子目录解析与范围选择回归测试"
   ]
 }
