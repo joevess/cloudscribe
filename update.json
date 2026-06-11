@@ -1,11 +1,9 @@
 {
-  "version": "0.9.91",
+  "version": "0.9.92",
   "release_date": "2026-06-11",
-  "image": "joevess9/cloudscribe:0.9.91",
+  "image": "joevess9/cloudscribe:0.9.92",
   "compose_url": "https://raw.githubusercontent.com/joevess/cloudscribe/main/docker-compose.yml",
   "release_notes": [
-    "修复夸克分享链接指向子目录时，订阅仍从分享根目录扫描的问题",
-    "预览、直接转存和订阅执行现在都会遵守 #/list/share/... 中的目录 ID",
-    "新增夸克分享子目录解析与范围选择回归测试"
+    "修复分享目录订阅范围异常"
   ]
 }

@@ -194,8 +194,8 @@ wget -qO- http://127.0.0.1:8008/health
 
 当前版本：
 
-- `0.9.91`
-- Digest: `sha256:d83f0035f2f4ffd76d2012cd085deb0ff031a35e9f2231f0150cdf0c0f712984`
+- `0.9.92`
+- Digest: `sha256:6a280548b1ddc4b62eb4d0e10a0cb9a7999fcf8094345a180f3b45a9ff5fc732`
 
 ## 注意事项
 
