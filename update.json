@@ -1,10 +1,9 @@
 {
-  "version": "0.9.93",
+  "version": "0.9.94",
   "release_date": "2026-06-16",
-  "image": "joevess9/cloudscribe:0.9.93",
+  "image": "joevess9/cloudscribe:0.9.94",
   "compose_url": "https://raw.githubusercontent.com/joevess/cloudscribe/main/docker-compose.yml",
   "release_notes": [
-    "修复同集更新重复转存问题",
-    "优化执行记录与下载队列"
+    "修复老版本升级后启动失败问题"
   ]
 }
