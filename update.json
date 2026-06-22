@@ -1,9 +1,11 @@
 {
-  "version": "0.9.94",
-  "release_date": "2026-06-16",
-  "image": "joevess9/cloudscribe:0.9.94",
+  "version": "0.9.95",
+  "release_date": "2026-06-22",
+  "image": "joevess9/cloudscribe:0.9.95",
   "compose_url": "https://raw.githubusercontent.com/joevess/cloudscribe/main/docker-compose.yml",
   "release_notes": [
-    "修复老版本升级后启动失败问题"
+    "定时检查支持按每天、每周设置",
+    "优化同集更新与 Aria2 下载队列",
+    "优化 Aria2 连接测试和错误提示"
   ]
 }
